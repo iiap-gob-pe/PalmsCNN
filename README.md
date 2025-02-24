@@ -4,8 +4,9 @@ The **PalmsCNN** repository provides the code for training a model designed to s
 
 The proposed approach combines drone-based data with an architecture that integrates **ecoCNN** for data generation, **DeepLabv3+** for semantic segmentation, and **DWT (Deep Watershed)** for image processing. This combination enables precise and efficient detection of palm crowns in aerial imagery.
 
-#### **Species Detected**
+**Species Detected**
 The model is trained to detect three ecologically and economically important palm species in the Amazon:
+0. Background (0)
 1. **Mauritia Flexuosa** (Class 1)
 2. **Euterpe Precatoria** (Class 2)
 3. **Oenocarpus Bataua** (Class 3)
@@ -17,5 +18,5 @@ The repository includes a step-by-step guide that explains how to:
 3. Apply the trained model to detect and count the crowns of the three palm species.
 
 #### **Python scripts**
-For those interested in running the model directly from the original python scripts, they are also avauilable and enumerated to follow the steps for data generation, model training, and predictions.
+For those interested in running the model directly from the original python scripts, they are also available and enumerated to follow the steps for data generation, model training, and predictions.
 
