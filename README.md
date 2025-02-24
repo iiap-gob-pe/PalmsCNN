@@ -13,10 +13,19 @@ The model is trained to detect three ecologically and economically important pal
 
 #### **Jupyter Notebooks**
 The repository includes a step-by-step guide that explains how to:
-1. Train a model to detect 3 palm species
-2. Train a model to split the crowns of the segmented crowns
-3. Apply the trained model to detect and count the crowns of the three palm species.
+1. Train a model to detect 3 palm species (1_PalmsCNN_Tutorial.ipynb, items from 1 to 4)
+2. Train a model to split the crowns of the segmented crowns (1_PalmsCNN_Tutorial.ipynb, items from 5 to 7)
+3. Apply the trained model to detect and count the crowns of the three palm species (2_PalmsCNN_Tutorial_Prediction.ipynb)
 
 #### **Python scripts**
-For those interested in running the model directly from the original python scripts, they are also available and enumerated to follow the steps for data generation, model training, and predictions.
+For those interested in running the models directly from the original python scripts, they are also available and enumerated to follow the steps for data generation, model training, and predictions. They can be found in the folders: 
+- Palms_Segment (Scripts numbered from 1 to 4)
+- Palms_Quant/E2E_palms (Scripts numbered from 1 to 4)
+
+#### **Google Collab**
+The notebooks can be run in Google Collab. 
+1st run the 0_PalmsCNN_Getting_Started.ipynb
+2nd the 1_PalmsCNN_Tutorial_Google_Colab.ipynb
+
+
 
