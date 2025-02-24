@@ -1,0 +1,27 @@
+name: palms
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - ipykernel  # Necesario para usar el entorno en Colab
+  - tensorflow
+  - keras
+  - scipy
+  - pandas
+  - gdal==3.4.3
+  - pip:
+      - opencv-python-headless
+      - fiona
+      - scikit-learn-intelex==2021.5.3
+      - imageio
+      - networkx
+      - PyWavelets
+      - tifffile
+      - matplotlib
+      - scikit-image
+      - rasterio==1.2.10
+      - jupyter 
+
+
