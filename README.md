@@ -2,7 +2,7 @@
 
 The **PalmsCNN** repository provides the code for training a model designed to segment and detect the crowns of three palm species in Amazonian forests using RGB imagery captured by drones. This work is part of the research conducted by **Tagle et al.** 2025 **"Effective integration of drone technology for mapping and managing palm species in the Peruvian Amazon."**
 
-The proposed approach combines drone-based data with an architecture that integrates **ecoCNN** for data generation, **DeepLabv3+** for semantic segmentation, and **DWT (Deep Watershed)** for image processing. This combination enables precise and efficient detection of palm crowns in aerial imagery.
+The proposed approach combines drone-based data with an architecture that integrates **ecoCNN** for data generation, **DeepLabv3+** for semantic segmentation, and **DWT (Deep Watershed)** for image processing. This combination enables precise and efficient detection of palm crowns in drone imagery.
 
 **Species Detected**
 The model is trained to detect three ecologically and economically important palm species in the Amazon:
