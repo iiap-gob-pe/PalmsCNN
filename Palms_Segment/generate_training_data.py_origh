@@ -30,8 +30,7 @@ import re
 import imageio
 import cv2
 
-#from .util_mod2 import *util_mod2 import *
-from util_mod2 import * #ALOBO
+from .util_mod2 import *
 
 
 def get_proj(fname,is_vector):
@@ -363,14 +362,12 @@ def build_semantic_segmentation_training_data(window_radius, samples_per_respons
   print(('response shape',responses.shape))
   print("========= Generating ",features.shape[0]," Tiles=========")
   for item in range(0,features.shape[0]):
-    #pathmask='/results/Palms_Segment/dataset/masks/'
-    pathmask='./dataset/masks/' #ALOBO 
+    pathmask='/results/Palms_Segment/dataset/masks/'
     os.makedirs(pathmask, exist_ok=True) # Create the folder if it doesn't exist
     output_png_mask = os.path.join(pathmask, name_responses[item]+'_' + str(item) + '.png')
     cv2.imwrite(output_png_mask, responses[item]) #uses openCV to keep the values as classes 0,1,2 and 3 (no scaling)
     
-    #pathfeature='/results/Palms_Segment/dataset/frames/'
-    pathfeature='./dataset/frames/' #ALOBO
+    pathfeature='/results/Palms_Segment/dataset/frames/'
     os.makedirs(pathfeature, exist_ok=True) # Create the folder if it doesn't exist
     output_png_frame = os.path.join(pathfeature, name_responses[item]+'_'  + str(item) + '.png')
     

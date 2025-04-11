@@ -25,11 +25,12 @@ Authors: Tagle,X.; Cardenas, R.; Palacios, S.; Marcos, D.
 import numpy as np
 from model import Deeplabv3
 from util import *
-from tensorflow.keras
+#from tensorflow.keras #ALOBO
 #from keras import optimizers
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, TensorBoard
 #from keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, TensorBoard
 
+np.bool=bool
 import imgaug.augmenters as iaa
 from imgaug.augmentables.segmaps import SegmentationMapsOnImage
 import os
@@ -65,13 +66,13 @@ typetest="iaa"
 
 ### Split data in Training and Validation
 #Paths
-train_frame_path = '/mnt/guanabana/raid/home/xtagle/ML/CNN/ecoCNN/dataset/frames' #X
-train_mask_path = '/mnt/guanabana/raid/home/xtagle/ML/CNN/ecoCNN/dataset/masks'   #Y 
-train_list = '/mnt/guanabana/raid/home/xtagle/ML/CNN/ecoCNN/dataset/'+rep+'_trainlist.txt'
-val_list = '/mnt/guanabana/raid/home/xtagle/ML/CNN/ecoCNN/dataset/'+rep+'_vallist.txt'
+train_frame_path = './dataset/frames' #X  #ALOBO
+train_mask_path = './dataset/masks'   #Y  #ALOBO 
+train_list = './dataset/'+rep+'_trainlist.txt'
+val_list = './dataset/'+rep+'_vallist.txt'
 
 
-log_path = "logs/fit/"
+log_path = "./logs/fit/" #ALOBO
 
 #Print info 
 NO_OF_IMAGES = len(os.listdir(train_frame_path))

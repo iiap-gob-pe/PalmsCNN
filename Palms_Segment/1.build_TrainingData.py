@@ -33,8 +33,8 @@ Authors: Tagle,X.; Cardenas, R.; Palacios, S.; Marcos, D.
 ### Import libraries needed
 import os
 #Import our modules
-from Palms_Segment import generate_training_data
-
+#from Palms_Segment import generate_training_data
+import generate_training_data
 
 ### Select the nodes that will be used
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
@@ -55,7 +55,9 @@ window_radius = 256 #256 for the palm trees, higher takes longer
 samples_per_response_per_site = 191 #30 #100 #170 for only Mauritia
 
 # List of mosaics 
-feature_file_list = [ 'data/AGU-01_crop.tif',
+feature_file_list = [ '../data/DMM-02_1.tif'
+#'../data/DMM-01_10.tif'
+# 'data/AGU-01_crop.tif',
 #                     'data/PRN-01_01.tif',
 #   './data/AM_02.tif',
 #'./data/DMM-01_10.tif',
@@ -63,7 +65,9 @@ feature_file_list = [ 'data/AGU-01_crop.tif',
 	]
 
 # Rasters with the response data (the function supports shapefiles directly but only when working with one class)
-response_file_list = ['responses_raster/Palms_AGU-01_crop_classes.tif',
+response_file_list = ['../responses_raster/Palms_DMM-02_1_classesb.tif'
+#'../responses_raster/Palms_DMM-02_classes.tif'
+#'responses_raster/Palms_AGU-01_crop_classes.tif',
 #                      'responses_raster/Palms_PRN-01_01_classes.tif',
 #'./responses_raster/Palms_merged_AM_02_classes.tif',
 #'./responses_raster/Palms_merged_DMM-01_10_classes.tif',
@@ -71,7 +75,9 @@ response_file_list = ['responses_raster/Palms_AGU-01_crop_classes.tif',
 	] 
 
 # Shapefile with the Area of Interest (ROI)
-boundary_file_list = ['data/AGU01_ROI_2018.shp',
+boundary_file_list = ['../data/DMM02_ROI_2019.shp'
+#'../data/DMM02_ROI_2019.shp'
+#'data/AGU01_ROI_2018.shp',
 #                      'data/PRN01_ROI_2017.shp',
 #'./data/AM02_ROI_2019.shp',
 #'./data/DMM01_ROI_2019.shp',
@@ -98,7 +104,7 @@ generate_training_data.build_semantic_segmentation_training_data(
 									  ignore_projections=ignore_projections,
 									  #global_scale_flag='mean_std', #Scaling, Default None
 									  local_scale_flag='mean', #scaling
-                                      nodata_maximum_fraction=0.8
+                                      nodata_maximum_fraction=0.8,
                                       center_random_offset_fraction=0.0, 
                                       response_minimum_fraction=0.0,#0.5
 									  response_repeats=1, # To sample from each response center n times
