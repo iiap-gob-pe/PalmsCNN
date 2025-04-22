@@ -22,8 +22,8 @@ For those interested in running the models directly from the original python scr
 - Palms_Segment (Scripts numbered from 1 to 4)
 - Palms_Quant/E2E_palms (Scripts numbered from 1 to 4)
 
-#### **Google Collab**
-The notebooks can be run in Google Collab. 
+#### **Google Colab**
+The notebooks can be run in Google Colab. 
 1st run the 0_PalmsCNN_Getting_Started.ipynb
 2nd the 1_PalmsCNN_Tutorial_Google_Colab.ipynb
 
