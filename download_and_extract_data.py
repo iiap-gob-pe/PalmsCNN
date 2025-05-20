@@ -13,7 +13,7 @@ def install_package(package_name, pip_version=None, conda_name=None):
         return True
     except ImportError:
         print(f"Installing {package_name}...")
-        # Try pip with user installation
+        # Try pip with user installation, suppress error output
         pip_cmd = [sys.executable, "-m", "pip", "install"]
         if pip_version:
             pip_cmd.append(f"{package_name}=={pip_version}")
@@ -21,11 +21,10 @@ def install_package(package_name, pip_version=None, conda_name=None):
             pip_cmd.append(package_name)
         pip_cmd.append("--user")
         try:
-            subprocess.check_call(pip_cmd)
+            subprocess.check_call(pip_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             print(f"Successfully installed {package_name} with pip.")
             return True
-        except subprocess.CalledProcessError as e:
-            print(f"Failed to install {package_name} with pip: {e}")
+        except subprocess.CalledProcessError:
             # Try Conda as fallback
             if conda_name:
                 print(f"Attempting to install {conda_name} with Conda...")
@@ -35,6 +34,7 @@ def install_package(package_name, pip_version=None, conda_name=None):
                     return True
                 except subprocess.CalledProcessError as e:
                     print(f"Failed to install {conda_name} with Conda: {e}")
+                    return False
             return False
 
 def download_file(file_id, output_name):
@@ -109,7 +109,7 @@ def download_and_setup_unrar():
 
     print("Verifying unrar...")
     try:
-        result = subprocess.run([unrar_path, "--version"], capture_output=True, text=True)
+        result = subprocess.run([unrar_path], capture_output=True, text=True)
         print(result.stdout)
     except Exception as e:
         print(f"unrar verification failed: {e}")
