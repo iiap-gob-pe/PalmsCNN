@@ -5,14 +5,33 @@ import importlib
 import tarfile
 import urllib.request
 
-def install_package(package_name):
-    """Install a Python package using pip in user space."""
+def install_package(package_name, version=None):
+    """Install a Python package using pip in user space or Conda as fallback."""
     try:
         importlib.import_module(package_name)
         print(f"{package_name} is already installed.")
+        return True
     except ImportError:
         print(f"Installing {package_name}...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package_name, "--user"])
+        # Try pip with user installation
+        pip_cmd = [sys.executable, "-m", "pip", "install", package_name, "--user"]
+        if version:
+            pip_cmd[3] = f"{package_name}=={version}"
+        try:
+            subprocess.check_call(pip_cmd)
+            print(f"Successfully installed {package_name} with pip.")
+            return True
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to install {package_name} with pip: {e}")
+            # Try Conda as fallback
+            print(f"Attempting to install {package_name} with Conda...")
+            try:
+                subprocess.check_call(["conda", "install", "-c", "conda-forge", package_name, "-y"])
+                print(f"Successfully installed {package_name} with Conda.")
+                return True
+            except subprocess.CalledProcessError as e:
+                print(f"Failed to install {package_name} with Conda: {e}")
+                return False
 
 def download_file(file_id, output_name):
     """Download a file from Google Drive using gdown."""
@@ -55,7 +74,7 @@ def download_and_setup_unrar():
 
     print("Downloading unrar source...")
     try:
-        urllib.request.urlretrieve(unrar_url, unrar_tar)
+        urllib.request.urlretrieve(unrar_url, unrar.tar)
     except Exception as e:
         print(f"Failed to download unrar: {e}")
         print("Please check the URL at https://www.rarlab.com/download.htm and update unrar_url in the script.")
@@ -113,8 +132,12 @@ def main():
     ]
 
     # Install required Python packages
-    install_package("gdown")
-    install_package("patoolib")
+    if not install_package("gdown"):
+        print("Failed to install gdown. Exiting.")
+        sys.exit(1)
+    if not install_package("patoolib", version="2.4.0"):
+        print("Failed to install patoolib. Exiting.")
+        sys.exit(1)
 
     # Check for existing extraction tools
     extraction_tool = check_extraction_tool()
