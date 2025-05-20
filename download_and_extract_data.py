@@ -5,7 +5,7 @@ import importlib
 import tarfile
 import urllib.request
 
-def install_package(package_name, version=None):
+def install_package(package_name, pip_version=None, conda_name=None):
     """Install a Python package using pip in user space or Conda as fallback."""
     try:
         importlib.import_module(package_name)
@@ -14,9 +14,12 @@ def install_package(package_name, version=None):
     except ImportError:
         print(f"Installing {package_name}...")
         # Try pip with user installation
-        pip_cmd = [sys.executable, "-m", "pip", "install", package_name, "--user"]
-        if version:
-            pip_cmd[3] = f"{package_name}=={version}"
+        pip_cmd = [sys.executable, "-m", "pip", "install"]
+        if pip_version:
+            pip_cmd.append(f"{package_name}=={pip_version}")
+        else:
+            pip_cmd.append(package_name)
+        pip_cmd.append("--user")
         try:
             subprocess.check_call(pip_cmd)
             print(f"Successfully installed {package_name} with pip.")
@@ -24,14 +27,15 @@ def install_package(package_name, version=None):
         except subprocess.CalledProcessError as e:
             print(f"Failed to install {package_name} with pip: {e}")
             # Try Conda as fallback
-            print(f"Attempting to install {package_name} with Conda...")
-            try:
-                subprocess.check_call(["conda", "install", "-c", "conda-forge", package_name, "-y"])
-                print(f"Successfully installed {package_name} with Conda.")
-                return True
-            except subprocess.CalledProcessError as e:
-                print(f"Failed to install {package_name} with Conda: {e}")
-                return False
+            if conda_name:
+                print(f"Attempting to install {conda_name} with Conda...")
+                try:
+                    subprocess.check_call(["conda", "install", "-c", "conda-forge", conda_name, "-y"])
+                    print(f"Successfully installed {conda_name} with Conda.")
+                    return True
+                except subprocess.CalledProcessError as e:
+                    print(f"Failed to install {conda_name} with Conda: {e}")
+            return False
 
 def download_file(file_id, output_name):
     """Download a file from Google Drive using gdown."""
@@ -74,7 +78,7 @@ def download_and_setup_unrar():
 
     print("Downloading unrar source...")
     try:
-        urllib.request.urlretrieve(unrar_url, unrar.tar)
+        urllib.request.urlretrieve(unrar_url, unrar_tar)
     except Exception as e:
         print(f"Failed to download unrar: {e}")
         print("Please check the URL at https://www.rarlab.com/download.htm and update unrar_url in the script.")
@@ -135,7 +139,7 @@ def main():
     if not install_package("gdown"):
         print("Failed to install gdown. Exiting.")
         sys.exit(1)
-    if not install_package("patoolib", version="2.4.0"):
+    if not install_package("patoolib", pip_version="2.4.0", conda_name="patool"):
         print("Failed to install patoolib. Exiting.")
         sys.exit(1)
 
