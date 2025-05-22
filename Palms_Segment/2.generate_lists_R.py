@@ -23,8 +23,8 @@ def Filter(datalist,caracter):
 
 dfrasters=pd.read_csv('Lista_raster.csv', sep=';')
 Replicat=["R1","R2","R3","R4","R5","R6"]
-train_frame_path = 'frames/'
-train_mask_path = 'masks/'
+train_frame_path = 'dataset/frames/'
+train_mask_path = 'dataset/masks/'
 path=""
 list_tiles = fnmatch.filter(os.listdir(train_frame_path), "*.png") # include dot-files
 print('Tiles: ',len(list_tiles))
