@@ -65,7 +65,7 @@ feature_file_list = [ '../data/DMM-02_1.tif'
 	]
 
 # Rasters with the response data (the function supports shapefiles directly but only when working with one class)
-response_file_list = ['../responses_raster/Palms_merged_DMM-02_1_classes.tif'
+response_file_list = ['../results/Palms_Segment/responses_raster/Palms_merged_DMM-02_1_classes.tif'
 #'../responses_raster/Palms_DMM-02_classes.tif'
 #'responses_raster/Palms_AGU-01_crop_classes.tif',
 #                      'responses_raster/Palms_PRN-01_01_classes.tif',
