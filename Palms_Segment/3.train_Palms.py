@@ -36,7 +36,7 @@ from imgaug.augmentables.segmaps import SegmentationMapsOnImage
 import os
 
 import tensorflow as tf
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 from tensorflow.python.keras.utils import losses_utils
 from model import Deeplabv3, dice_coef
 
