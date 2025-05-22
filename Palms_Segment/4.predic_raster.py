@@ -51,9 +51,6 @@ warnings.filterwarnings('ignore')
 import pandas as pd
 
 #Import our modules
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from Palms_Segment import model
 from Palms_Segment import apply_model as apply_model_dl
 from Palms_Quant.E2E_palms import apply_model as apply_model_dwt
