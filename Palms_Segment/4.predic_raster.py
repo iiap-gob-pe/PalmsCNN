@@ -27,6 +27,9 @@ Requirements:
 
 Authors: Tagle,X.; Cardenas, R.; Palacios, S.; Marcos, D.
 """
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 ### Import libraries needed
 from osgeo import gdal, ogr, osr #windows
