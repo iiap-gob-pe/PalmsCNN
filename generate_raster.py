@@ -31,18 +31,18 @@ def rasterize_vector(vector_file,geotransform,output_shape):
 
 ### Load data
 #UAV mosaics
-feature_file_list = ['../data/DMM-02_1.tif']
+feature_file_list = ['data/DMM-02_1.tif']
 dataset = gdal.Open(feature_file_list[0],gdal.GA_ReadOnly)#Reading all the images --> dataset
 print(dataset)
 
 #Crowns shapefiles
-response_file_list = ['../data/Mflexuosa_DMM02_2019.shp',
-                      '../data/Eprecatoria_DMM02_2019.shp',
-                    '../data/Obataua_DMM02_2019.shp'
+response_file_list = ['data/Mflexuosa_DMM02_2019.shp',
+                      'data/Eprecatoria_DMM02_2019.shp',
+                    'data/Obataua_DMM02_2019.shp'
                      ]
 
 ### Output folder
-out_folder = '../results/Palms_Segment/responses_raster' #do not forget to create the folder if it does not exist
+out_folder = 'results/Palms_Segment/responses_raster' #do not forget to create the folder if it does not exist
 os.makedirs(out_folder, exist_ok=True) # Create the folder if it doesn't exist
 
 #Run the function
