@@ -66,10 +66,10 @@ typetest="iaa"
 
 ### Split data in Training and Validation
 #Paths
-train_frame_path = './dataset/frames' #X  #ALOBO
-train_mask_path = './dataset/masks'   #Y  #ALOBO 
-train_list = './dataset/'+rep+'_trainlist.txt'
-val_list = './dataset/'+rep+'_vallist.txt'
+train_frame_path = 'dataset/frames' #X  #ALOBO
+train_mask_path = 'dataset/masks'   #Y  #ALOBO 
+train_list = 'dataset/'+rep+'_trainlist.txt'
+val_list = 'dataset/'+rep+'_vallist.txt'
 
 
 log_path = "./logs/fit/" #ALOBO
