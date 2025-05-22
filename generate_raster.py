@@ -1,4 +1,5 @@
-import sys,os
+import sys, os
+os.environ['CPL_LOG_ERRORS'] = 'OFF'
 import re
 from osgeo import gdal, ogr
 import rasterio.features
