@@ -93,7 +93,7 @@ application_name='balanced'
 
 feature_file_list= [
         '../data/DMM-02_1.tif',
-    '../data_prediction/Test_20250410.tif',
+    '../data_prediction/PIU-03_1_5.tif',
         ]
 
 internal_window_radius = int(round(window_radius*0.75))
