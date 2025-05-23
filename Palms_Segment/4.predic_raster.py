@@ -101,11 +101,11 @@ internal_window_radius = int(round(window_radius*0.75))
 
 ###Load model
 #test_model = load_model('/mnt/guanabana/raid/home/xtagle/ML/CNN/deeplab/keras-deeplab-v3-plus/deeplab_keras_model.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling })
-#test_model = load_model('models/deeplab_keras_model_palms_iaa_all_0.003_W.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling,'dice_coef':model.dice_coef  })
+test_model = load_model('./models/deeplab_keras_model_palms_iaa_all_0.003_W.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling,'dice_coef':model.dice_coef  })
 #test_model = load_model('models/deeplab_keras_model_palms_class_balanced_RESCALADO-SINAUG_500EP_ft-iaaall0.003W_0.003_EP99.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling,'dice_coef':model.dice_coef  }) #ALOBO
 #test_model = load_model('models/deeplab_keras_model_palms_all.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling })
 #test_model = load_model('/mnt/guanabana/raid/home/xtagle/ML/CNN/deeplab/keras-deeplab-v3-plus/models/deeplab_keras_model_palms_iaa_all_0.003_W.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling,'dice_coef':model.dice_coef  })
-test_model = load_model('./models/deeplab_keras_model_palms_all_iaa_0.003.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling,'dice_coef':model.dice_coef  }) #ALOBO
+#test_model = load_model('./models/deeplab_keras_model_palms_all_iaa_0.003.h5',custom_objects={'relu6':model.relu6,'BilinearUpsampling':model.BilinearUpsampling,'dice_coef':model.dice_coef  }) #ALOBO
 
 
 ###Model application
