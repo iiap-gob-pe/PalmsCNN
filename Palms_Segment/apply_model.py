@@ -274,8 +274,8 @@ def apply_semantic_segmentation_argmax_optimizado(input_file_list,\
     printUseRam("========= Inicio de prediccion ==========") 
     win_size=window_radius * 2
   
-    if (os.path.isdir(output_folder) == False): os.mkdir(output_folder)
-  
+    if (os.path.isdir(output_folder) == False): os.makedirs(output_folder, exist_ok=True)
+
     if (internal_window_radius is None): internal_window_radius = window_radius
 
     for _item in range(0,len(input_file_list)):
