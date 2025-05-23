@@ -110,7 +110,7 @@ test_model = load_model('./models/deeplab_keras_model_palms_all_iaa_0.003.h5',cu
 
 ###Model application
 
-apply_model.apply_semantic_segmentation_argmax_optimizado(
+apply_model_dl.apply_semantic_segmentation_argmax_optimizado(
 					input_file_list=feature_file_list,
                                         output_folder=output_folder,
 					application_name=application_name,
