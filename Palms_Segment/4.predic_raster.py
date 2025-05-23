@@ -69,7 +69,8 @@ warnings.filterwarnings('ignore') #avoid getting warnings
 
 #when CuDNN issue
 import tensorflow as tf
-config = tf.ConfigProto()
+#config = tf.ConfigProto()
+config = tf.compat.v1.ConfigProto()
 config.gpu_options.allow_growth = True
 session = tf.Session(config=config)
 
