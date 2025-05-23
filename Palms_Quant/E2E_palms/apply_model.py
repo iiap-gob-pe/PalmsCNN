@@ -1,5 +1,6 @@
 import sys
-sys.path.append('../code/Palms_Quant/E2E_palms')
+#sys.path.append('../code/Palms_Quant/E2E_palms')
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from osgeo import gdal, ogr, osr
 import numpy as np
 import os
