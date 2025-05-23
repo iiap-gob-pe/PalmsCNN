@@ -1,6 +1,7 @@
 import scipy
 import skimage.morphology
 import numpy as np
+np.bool = bool
 
 #CS codes
 CLASS_TO_SS = {"mauritia":-128, "euterpe":-96, "oenocarpus":-64} #Mask pixel value per class
