@@ -54,14 +54,10 @@ warnings.filterwarnings('ignore')
 import pandas as pd
 
 #Import our modules
-from Palms_Segment.model import model, apply_model, evaluate_data
+from Palms_Segment import model
+from Palms_Segment import apply_model as apply_model_dl
 from Palms_Quant.E2E_palms import apply_model as apply_model_dwt
-from Palms_Quant.E2E_palms.network_init import get_model
-
-#from Palms_Segment import model
-#from Palms_Segment import apply_model as apply_model_dl
-#from Palms_Quant.E2E_palms import apply_model as apply_model_dwt
-#from Palms_Segment import evaluate_data
+from Palms_Segment import evaluate_data
 
 import imageio
 import cv2
