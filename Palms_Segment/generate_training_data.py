@@ -31,7 +31,7 @@ import imageio
 import cv2
 
 #from .util_mod2 import *util_mod2 import *
-from util_mod2 import * #ALOBO
+from .util_mod2 import * #ALOBO
 
 
 def get_proj(fname,is_vector):
